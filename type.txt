@@ -1,0 +1,13 @@
+run
+1-python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source yourvideo.mp4
+2-python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source 0.jpg --view-img --no-trace
+3-python detect.py --weights "your weight" --conf 0.25 --img-size 640 --source 0.jpg --view-img --no-trace
+
+trian
+1-python train.py --workers 8 --device 0 --batch-size 8--data data/custom-data.yaml --img 640 640 --cfg cfg/training/yolov7 - custom.yaml --weights yolov7.pt --name yolov7 - custom --hyp data/hyp.scratch.custom.yaml
+2-python train.py --workers 8 --device 0 --batch-size 8 --epochs 100 --img 640 640 --data data/custom-data.yaml --hyp data/hyp.scratch.custom.yaml --cfg cfg/yolov7-custom.yaml --name yolov7-custom --weights yolov7.pt
+3-python train.py --workers 1 --device 0 --batch-size 8 --epochs 100 --img 640 640 --data data/custom-data.yaml --hyp data/hyp.scratch.custom.yaml --cfg cfg/training/yolov7-custom.yaml --name yolov7-custom --weights yolov7.pt
+
+error
+set KMP_DUPLICATE_LIB_OK=TRUE
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
